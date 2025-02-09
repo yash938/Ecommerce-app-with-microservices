@@ -1,6 +1,7 @@
 package com.microservices.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.microservices.dto.OrderResponseDto;
 import com.microservices.entity.Order;
 import com.microservices.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class OrderController {
         return new ResponseEntity<>(s, HttpStatus.OK);
     }
     @GetMapping("/{orderId}")
-    public String getOrder(@PathVariable String orderId){
+    public OrderResponseDto getOrder(@PathVariable String orderId){
         return orderService.getOrder(orderId);
     }
 }
